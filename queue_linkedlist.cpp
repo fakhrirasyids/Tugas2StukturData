@@ -20,7 +20,7 @@ int isEmpty(){
     return tail == NULL;
 }
 
-void insertBelakang(int databaru1)
+void inqueue(int databaru1)
 {
     TNode *baru;
     baru = new TNode;
@@ -36,7 +36,7 @@ void insertBelakang(int databaru1)
     cout<<"Data masuk\n";
 }
 
-void deleteDepan()
+void dequeue()
 {
     TNode *hapus;
     int d, e;
@@ -94,11 +94,11 @@ int main()
         {
             case 1: system("CLS");{
                 cout<<"Masukan Data 1 = ";cin>>databaru1;
-                insertBelakang(databaru1);
+                inqueue(databaru1);
                 break;
             }
             case 2: system("CLS");{
-                deleteDepan();
+                dequeue();
                 break;
             }
             case 3: system("CLS");{

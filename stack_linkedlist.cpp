@@ -4,6 +4,9 @@
 
 using namespace std;
 
+int top = 1;
+int MAX = 10;
+
 struct TNode{
     int nilaiX;
     TNode *next;
@@ -20,6 +23,10 @@ int isEmpty(){
     return tail == NULL;
 }
 
+int isMax(){
+    return top == MAX;
+}
+
 void insertBelakang(int databaru1)
 {
     TNode *baru;
@@ -30,10 +37,15 @@ void insertBelakang(int databaru1)
     if(isEmpty()) {
         head=tail=baru;
     } else {
-        tail->next = baru;
-        tail=baru;
+        if (isMax()) {
+            cout << "Stack penuh!" << endl;
+        } else {
+            top++;
+            tail->next = baru;
+            tail=baru;
+            cout<<"Data masuk\n";
+        }
     }
-    cout<<"Data masuk\n";
 }
 
 void deleteBelakang() {
@@ -51,6 +63,7 @@ void deleteBelakang() {
                     tail = bantu;
                     tail->next = NULL;
                     delete hapus;
+                    top--;
                     break;
                 }
 
@@ -62,7 +75,7 @@ void deleteBelakang() {
         }
 
         cout<< d << " terhapus";
-    } else cout<<"Masih kosong\n";
+    } else cout<<"Stack masih kosong\n";
 }
 
 void tampil(){
@@ -77,7 +90,7 @@ void tampil(){
             idx++;
         }
     } else {
-        cout <<"Masih kosong\n";
+        cout <<"Stack masih kosong\n";
     }
 }
 
